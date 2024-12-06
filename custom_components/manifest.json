@@ -1,0 +1,11 @@
+{
+  "domain": "octopus_energy_jp",
+  "name": "Octopus Energy Japan Integration",
+  "version": "1.0.0",
+  "documentation": "https://github.com/yourname/octopus_energy",
+  "dependencies": [],
+  "requirements": ["aiohttp>=3.7.4"],
+  "codeowners": ["@yourname"],
+  "iot_class": "cloud_polling"
+}
+
