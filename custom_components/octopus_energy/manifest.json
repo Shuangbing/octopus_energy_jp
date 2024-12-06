@@ -1,0 +1,11 @@
+{
+  "domain": "octopus_energy_jp",
+  "name": "Octopus Energy Japan HACS",
+  "documentation": "https://github.com/Shuangbing/octopus_energy_jp",
+  "dependencies": [],
+  "codeowners": ["@shuangbing"],
+  "requirements": ["gql==3.0.0a5", "aiohttp==3.7.4"],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "version": "0.1.0"
+}

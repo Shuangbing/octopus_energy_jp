@@ -1,0 +1,6 @@
+{
+  "name": "Octopus Energy Japan",
+  "render_readme": true,
+  "domains": ["sensor"],
+  "iot_class": "Cloud Polling"
+}
