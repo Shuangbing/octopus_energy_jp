@@ -9,11 +9,12 @@ class OctopusEnergyAPI:
         self.password = password
         self.token = None
         self.refresh_token = None
+        self.transport = None
         self.client = None
 
     async def authenticate(self):
-        transport = AIOHTTPTransport(url="https://api.oejp-kraken.energy/v1/graphql/")
-        async with Client(transport=transport, fetch_schema_from_transport=True) as client:
+        self.transport = AIOHTTPTransport(url="https://api.oejp-kraken.energy/v1/graphql/")
+        async with Client(transport=self.transport, fetch_schema_from_transport=True) as client:
             query = gql(
                 """
                 mutation login($input: ObtainJSONWebTokenInput!) {
@@ -37,8 +38,8 @@ class OctopusEnergyAPI:
     async def get_usage_data(self, account_number, from_datetime, to_datetime):
         if not self.client:
             headers = {"Authorization": f"JWT {self.token}"}
-            transport = AIOHTTPTransport(url="https://api.oejp-kraken.energy/v1/graphql/", headers=headers)
-            self.client = Client(transport=transport, fetch_schema_from_transport=True)
+            self.transport = AIOHTTPTransport(url="https://api.oejp-kraken.energy/v1/graphql/", headers=headers)
+            self.client = Client(transport=self.transport, fetch_schema_from_transport=True)
 
         query = gql(
             """
